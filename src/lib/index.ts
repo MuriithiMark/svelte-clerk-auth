@@ -5,4 +5,4 @@ export { default as UserButton } from './clerk/UserButton.svelte'
 export { default as ClerkStore } from './clerk/stores/clerk-store'
 
 export { signIn, signOut, getUser, showUserProfile, } from './clerk/AuthFunctions'
-export { auth, initializeClerk } from './clerk'
+export { auth, initializeClerk, clerk } from './clerk'
