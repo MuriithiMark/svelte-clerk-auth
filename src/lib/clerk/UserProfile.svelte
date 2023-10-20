@@ -17,4 +17,4 @@
 
 </script>
 
-<div class="user-profile" bind:this={UserProfileComponent} />
+<div class="clerk-user-profile" bind:this={UserProfileComponent} />

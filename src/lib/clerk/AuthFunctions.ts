@@ -27,6 +27,7 @@ function signOut(options?: SignOutOptions) {
 		})
 	});
 }
+
 /**
  * Returns the Current User only if the user is logged in.
  * @returns {UserResource | null | undefined} 

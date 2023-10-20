@@ -15,4 +15,4 @@
 	onDestroy(() => clerk.unmountSignUp(SignUpComponent))
 </script>
 
-<div class="sign-up" bind:this={SignUpComponent} />
+<div class="clerk-sign-up" bind:this={SignUpComponent} />

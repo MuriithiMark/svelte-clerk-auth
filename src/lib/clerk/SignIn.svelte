@@ -17,4 +17,4 @@
 	onDestroy(() => clerk.unmountSignIn(SignInComponent))
 </script>
 
-<div class="sign-in" bind:this={SignInComponent} />
+<div class="clerk-sign-in" bind:this={SignInComponent} />
