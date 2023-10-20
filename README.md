@@ -1,63 +1,118 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # svelte-clerk-auth
 Clerk Auth Library For SvelteKit
 =======
 # create-svelte
+=======
+# svelte-clerk-auth
+>>>>>>> a0ca65d (Updated README.md and LICENSE)
 
-Everything you need to build a Svelte library, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+## Clerk Auth Library for Sveltekit
+A Svelte kit library implementing the [Clerk js Auth](https://clerk.com).
 
-Read more about creating a library [in the docs](https://kit.svelte.dev/docs/packaging).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
+## Installation
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+pnpm install svelte-clerk-auth
+```
+```bash
+npm install svelte-clerk-auth
 ```
 
-## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Usage
+```html
+<script lang="ts">
+    import { initializeClerk, signIn, signOut, SignedIn, SignedOut, UserButton } from "svelte-clerk-auth";
+    import { onMount } from "svelte"
 
-```bash
-npm run dev
+    const clerkOptions = {}; // Refer from Clerk documentation
+    const optionalSignInProps = {}; // Refer from Clerk documentation
+    const optionalSignInProps = {}; // Refer from Clerk documentation
+    onMount(async () => await initializeClerk(clerkOptions))
+</script>
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+<SignedIn>
+    <span>Shows only when SignedIn.</span>
+
+    <!--UserButton provides convinient way to show user profile-->
+    <UserButton />
+
+    <button on:click={_ => signOut(optionalSignOutOptions)}>Sign Out</button>
+</SignedIn>
+<SignedOut>
+    <span>Shows only when SignedOut</span>
+    <button on:click={_ => signIn(optionalSignInProps)}>Sign In</button>
+<SignedOut>
+```
+### ClerkStore Object
+```js
+type ClerkStoreProps = {
+    loading: boolean; // Checks if clerk has loaded
+    user?: UserResource | null; // Shows UserResource only if user is logged in
+    session?: SessionResource | null; // Current Session for the user
+    userIsSignedIn: () => boolean; // Returns true if user is logged in
+};
+// For specifcs refer to Clerk Documentation
+```
+```html
+<script lang="ts">
+    import { ClerkStore} from "svelte-clerk-auth";
+
+    $: console.log($ClerkStore);
+</script>
 ```
 
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
+### Info
+Documentations of the project is ongoing.
 
-## Building
+Project is safe to use.
 
-To build your library:
+Raise any issues here on github and support its documentation and any other necessary improvements.
 
-```bash
-npm run package
-```
+Care should be taken to only use SignedIn component where needed, since clerk-js is fully client side.
 
-To create a production version of your showcase app:
+Only encapsulate code that truly needs user authentication.
 
-```bash
-npm run build
-```
+For example in a Ecommerce Store, where you wish the products to be easily indexed by search engines, or better SEO for the overall website, but only authenticated users can place products in the Cart then do as follows: 
 
-You can preview the production build with `npm run preview`.
+In ```Procuct.svelte```
+```html
+<script lang="ts">
+    import { signIn } from "svelte-clerk-auth";
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+    let id = "78828dh-d88u8-kdj83";
+    let name = "Peanut Butter";
+    let imgSrc = "https://.../img.jpeg";
+    let price = 400;
 
-## Publishing
+    function addProductToCart() {
+        // Add Product To Cart
+    }
 
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
+    function signInUser() {
+        signIn({ /* SignInProps */ });
+    }
+</script>
 
+<<<<<<< HEAD
 To publish your library to [npm](https://www.npmjs.com):
 
 ```bash
 npm publish
 ```
 >>>>>>> d9cedf2 (Initial commit)
+=======
+<div class="card">
+    <img src={imgSrc} />
+    <span>{name}</span>
+    <span>{price}</span>
+    <SignedIn>
+        <button on:click="{addProuctToCart}">
+    </SignedIn>
+    <SignedOut>
+        <button on:click="{signInUser}">Login To Add Products</button>
+    </SignedOut>
+</div>
+```
+>>>>>>> a0ca65d (Updated README.md and LICENSE)
