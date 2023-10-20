@@ -6,7 +6,7 @@ type ClerkStoreProps = {
     loaded: boolean;
     user?: UserResource | null;
     session?: SessionResource | null;
-    userIsSignedIn: () => boolean;
+    userIsSignedIn: () => boolean;//Promise<boolean>;
 }
 
 const ClerkStore = writable<ClerkStoreProps>({

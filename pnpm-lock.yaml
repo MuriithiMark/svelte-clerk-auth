@@ -31,9 +31,6 @@ devDependencies:
   '@typescript-eslint/parser':
     specifier: ^6.0.0
     version: 6.0.0(eslint@8.28.0)(typescript@5.0.2)
-  clsx:
-    specifier: ^2.0.0
-    version: 2.0.0
   eslint:
     specifier: ^8.28.0
     version: 8.28.0
@@ -58,9 +55,6 @@ devDependencies:
   svelte-check:
     specifier: ^3.4.3
     version: 3.4.3(postcss@8.4.31)(svelte@4.0.5)
-  tailwind-merge:
-    specifier: ^1.14.0
-    version: 1.14.0
   tslib:
     specifier: ^2.4.1
     version: 2.4.1
@@ -1157,11 +1151,6 @@ packages:
       readdirp: 3.6.0
     optionalDependencies:
       fsevents: 2.3.3
-    dev: true
-
-  /clsx@2.0.0:
-    resolution: {integrity: sha512-rQ1+kcj+ttHG0MKVGBUXwayCCF1oh39BF5COIpRzuCEv8Mwjv0XucrI2ExNTOn9IlLifGClWQcU9BrZORvtw6Q==}
-    engines: {node: '>=6'}
     dev: true
 
   /code-red@1.0.4:
@@ -2728,10 +2717,6 @@ packages:
   /tabbable@6.2.0:
     resolution: {integrity: sha512-Cat63mxsVJlzYvN51JmVXIgNoUokrIaT2zLclCXjRd8boZ0004U4KCs/sToJ75C6sdlByWxpYnb5Boif1VSFew==}
     dev: false
-
-  /tailwind-merge@1.14.0:
-    resolution: {integrity: sha512-3mFKyCo/MBcgyOTlrY8T7odzZFx+w+qKSMAmdFzRvqBfLlSigU6TZnlFHK0lkMwj9Bj8OYU+9yW9lmGuS0QEnQ==}
-    dev: true
 
   /text-table@0.2.0:
     resolution: {integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==}
