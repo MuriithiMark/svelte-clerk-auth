@@ -37,7 +37,7 @@ function getUser() {
 }
 
 /**
- * Opens modal show the profile for the Currently logged in user
+ * Opens modal showing the profile for the Currently logged in user
  * @param {UserProfileProps} props Refer to Clerk Documentation
  */
 function showUserProfile(props?: UserProfileProps): void {

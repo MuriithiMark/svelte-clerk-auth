@@ -19,21 +19,30 @@ const clerk = new Clerk(clerkFrontendApi);
  * 
  * Initilizes Clerk. Since Clerk requires window. It must be done in onMount
  * 
- * Ensure that PUBLIC_CLERK_FRONTEND_API and PUBLIC_CLERK_PUBLISHABLE_KEY are set
+ * Ensure that `PUBLIC_CLERK_FRONTEND_API` and `PUBLIC_CLERK_PUBLISHABLE_KEY` are set in your `.env`.
  * 
- * Initializing clerk can be done as follows
- * @example
- * const clerkOptions = {}; // Refer from Clerk Documentation
- * onMount(async () => await initializeClerk(clerkOptions));
+ * Initializing clerk can be done as show below. It should ideally be done in your `routes/+layout.svelte`.
  * 
  * @example
- * const clerkOptions = {}; // Refer from Clerk Documentation
- * onMount(() => {
- *     initializeClerk(clerkOptions).then(() => {
- *         // Do something now that clerk has loaded. eg set clerkLoaded to true
- *         console.log($ClerkStore.clerkHasLoaded)
- *     });
- * });
+ *  <script lang="ts">
+ *      import { initializeClerk } from "svelte-clerk-auth"
+ * 
+ *      const clerkOptions = {}; // Refer from Clerk Documentation
+ *      onMount(async () => await initializeClerk(clerkOptions));
+ *  </script>
+ * 
+ * @example
+ *  <script lang="ts">
+ *      import { initializeClerk, ClerkStore } from "svelte-clerk-auth"
+ * 
+ *      const clerkOptions = {}; // Refer from Clerk Documentation
+ *      onMount(() => {
+ *              initializeClerk(clerkOptions).then(() => {
+ *              // Do something now that clerk has loaded. eg Access the ClerkStore
+ *              console.log($ClerkStore.loaded)
+ *          });
+ *      });
+ *  </script>
  * 
  */
 async function initializeClerk(options?: ClerkOptions) {
