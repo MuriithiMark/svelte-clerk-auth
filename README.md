@@ -1,12 +1,5 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 # svelte-clerk-auth
 Clerk Auth Library For SvelteKit
-=======
-# create-svelte
-=======
-# svelte-clerk-auth
->>>>>>> a0ca65d (Updated README.md and LICENSE)
 
 ## Clerk Auth Library for Sveltekit
 A Svelte kit library implementing the [Clerk js Auth](https://clerk.com).
@@ -95,14 +88,6 @@ In ```Procuct.svelte```
     }
 </script>
 
-<<<<<<< HEAD
-To publish your library to [npm](https://www.npmjs.com):
-
-```bash
-npm publish
-```
->>>>>>> d9cedf2 (Initial commit)
-=======
 <div class="card">
     <img src={imgSrc} />
     <span>{name}</span>
@@ -115,4 +100,3 @@ npm publish
     </SignedOut>
 </div>
 ```
->>>>>>> a0ca65d (Updated README.md and LICENSE)
