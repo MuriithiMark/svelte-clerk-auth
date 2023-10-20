@@ -1,6 +1,14 @@
 {
 	"name": "svelte-clerk-auth",
 	"version": "0.0.1",
+	"author": {
+		"name": "Muriithi Mark",
+		"url": "https://github.com/MuriithiMark"
+	},
+	"keywords": [
+		"svelte", "clerk", "svelte auth", "svelte clerk"
+	],
+	"license": "MIT",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run package",

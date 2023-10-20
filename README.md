@@ -68,7 +68,7 @@ Documentations of the project is ongoing.
 
 Project is safe to use.
 
-Raise any issues here on github and support its documentation and any other necessary improvements.
+Raise any issues [here](https://github.com/MuriithiMark/svelte-clerk-auth/issues) and support this project's documentation and any other necessary improvements.
 
 Care should be taken to only use SignedIn component where needed, since clerk-js is fully client side.
 
