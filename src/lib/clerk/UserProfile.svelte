@@ -2,15 +2,19 @@
 	import { clerk } from ".";
 	import type { UserProfileProps } from "@clerk/types";
 	import ClerkStore from "./stores/clerk-store";
+	import { onDestroy } from "svelte";
 
 	let UserProfileComponent: HTMLDivElement;
-	export let userProfileProps: UserProfileProps = {};
+	export let userProfileProps: UserProfileProps;
 
 	$: {
-		if ($ClerkStore.clerkHasLoaded) {
+		if ($ClerkStore.userIsSignedIn()) {
 			clerk.mountUserProfile(UserProfileComponent, userProfileProps);
 		}
 	}
+
+	onDestroy(() => clerk.unmountUserProfile(UserProfileComponent));
+
 </script>
 
 <div class="user-profile" bind:this={UserProfileComponent} />

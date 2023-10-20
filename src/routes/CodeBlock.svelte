@@ -6,7 +6,6 @@
   
   </code></pre>
 </div>
-OR
 <div class="code-block">
 	<pre><code>
 
@@ -24,10 +23,10 @@ OR
 		color: white;
 	}
   pre {
-    margin: 20px;
+    margin-left: 20px;
+
   }
 	code {
-		margin: 12px;
 		padding: 12px;
 	}
 </style>

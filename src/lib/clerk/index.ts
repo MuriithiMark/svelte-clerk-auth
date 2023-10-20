@@ -6,8 +6,6 @@ import type { ClerkOptions } from '@clerk/types'
 import { PUBLIC_CLERK_PUBLISHABLE_KEY } from '$env/static/public';
 import { PUBLIC_CLERK_FRONTEND_API } from '$env/static/public';
 
-// Auth Functions
-import { signIn, signOut, getUser, showUserProfile } from './AuthFunctions.svelte';
 import ClerkStore from './stores/clerk-store';
 
 
@@ -45,7 +43,14 @@ async function initializeClerk(options?: ClerkOptions) {
     }
 
     clerk.load(options).then(() => {
-        ClerkStore.set({ clerkHasLoaded: true });
+        ClerkStore.update((ClerkStore) => {
+            return {
+                ...ClerkStore,
+                loaded: true,
+                user: clerk.user,
+                session: clerk.session,
+            }
+        });
     });
 }
 
@@ -91,9 +96,4 @@ export {
     clerk,
     initializeClerk,
     auth,
-
-    signIn,
-    signOut,
-    getUser,
-    showUserProfile,
 }

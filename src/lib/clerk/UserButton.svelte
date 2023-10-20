@@ -1,22 +1,20 @@
 <script lang="ts">
-    import { cn } from "../utils";
-    import { getUser, showUserProfile } from "./AuthFunctions.svelte";
+	import { onDestroy } from "svelte";
+	import { clerk } from ".";
+	import ClerkStore from "./stores/clerk-store";
+	import type { UserButtonProps } from "@clerk/types";
 
-    const user = getUser();
+	let UserButtonComponent: HTMLDivElement;
 
-    let className: string;
-    export { className as class };
+    export let userButtonProps: UserButtonProps = {}
+
+	$: {
+		if ($ClerkStore.userIsSignedIn()) {
+			clerk.mountUserButton(UserButtonComponent, userButtonProps);
+		}
+	}
+
+	onDestroy(() => clerk.unmountUserButton(UserButtonComponent));
 </script>
 
-{#if user}
-    <button on:click={showUserProfile} class="outline-none appearance-none">
-        <img
-            class={cn(
-                "object-contain rounded-full hover:opacity-75",
-                className
-            )}
-            src={user.imageUrl}
-            alt={`${user.fullName} Avatar`}
-        />
-    </button>
-{/if}
+<div class="clerk-user-button" bind:this={UserButtonComponent} />
